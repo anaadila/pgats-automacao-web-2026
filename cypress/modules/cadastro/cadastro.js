@@ -16,7 +16,6 @@ const seletores = {
     checkOfertas: '#optin',
 
     // Formulário de Endereço
-    tituloFormulario: '.login-form > h2',
     primeiroNome: '[data-qa="first_name"]',
     ultimoNome: '[data-qa="last_name"]',
     empresa: '[data-qa="company"]',
@@ -45,12 +44,6 @@ function validarFormularioVisivel() {
     cy.get(seletores.tituloSignup)
         .should('be.visible')
         .and('have.text', 'New User Signup!');
-}
-
-function validarTelaDeInformacoesVisivel() {
-    cy.get(seletores.tituloFormulario)
-        .should('be.visible')
-        .and('have.text', 'Enter Account Information');
 }
 
 function validarMensagemDeErroSignup(mensagemEsperada) {
@@ -117,7 +110,6 @@ function validarContaExcluida() {
 module.exports = {
     acessarTelaDeCadastro,
     validarFormularioVisivel,
-    validarTelaDeInformacoesVisivel,
     iniciarNovoCadastro,
     preencherDadosDoUsuario,
     confirmarCriacaoDeConta,

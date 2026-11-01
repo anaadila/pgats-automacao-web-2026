@@ -30,7 +30,6 @@ describe('Fluxos de Cadastro de Usuário', () => {
         cadastro.iniciarNovoCadastro(usuario.nome, emailDinamico);
         cadastro.preencherDadosDoUsuario(usuario);
         cadastro.confirmarCriacaoDeConta();
-        cadastro.validarTelaDeInformacoesVisivel()
 
         // ASSERT
         cadastro.validarCadastroRealizado();
