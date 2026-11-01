@@ -16,7 +16,14 @@
     "estado": "Texas",
     "cidade": "Austin",
     "cep": "73301",
-    "celular": "11988888888"
+    "celular": "11988888888",
+    "cartao": {
+      "nome": "PGATS Aut",
+      "numero": "4111111111111111",
+      "cvc": "123",
+      "mes": "12",
+      "ano": "2030"
+    }
   },
   "usuarioExistente": {
     "nome": "PGATS Aut",
@@ -35,11 +42,18 @@
     "cidade": "Los Angeles",
     "cep": "90001",
     "celular": "11999999999",
-    "mensagemErroSignup": "Email Address already exist!"
+    "mensagemErroSignup": "Email Address already exist!",
+    "cartao": {
+      "nome": "PGATS Aut",
+      "numero": "4111111111111111",
+      "cvc": "123",
+      "mes": "12",
+      "ano": "2030"
+    }
   },
   "usuarioInvalido": {
     "email": "email_inexistente@mail.com",
     "senha": "senha_errada",
     "mensagemErroEsperada": "Your email or password is incorrect!"
   }
-  }
+}

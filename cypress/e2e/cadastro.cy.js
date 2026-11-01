@@ -24,7 +24,7 @@ describe('Fluxos de Cadastro de Usuário', () => {
         cadastro.acessarTelaDeCadastro();
         cadastro.validarFormularioVisivel()
 
-        let emailDinamico = Date.now() + `-${usuario.email}`
+        const emailDinamico = Date.now() + `-${usuario.email}`
 
         // ACT
         cadastro.iniciarNovoCadastro(usuario.nome, emailDinamico);
