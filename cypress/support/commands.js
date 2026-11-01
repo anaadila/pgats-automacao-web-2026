@@ -26,35 +26,35 @@
 
 Cypress.Commands.add('garantirUsuarioExistente', (usuario) => {
 
-  cy.request({
-    method: 'POST',
-    url: '/api/createAccount',
-    form: true, 
-    failOnStatusCode: false,
-    body: {
-      name: usuario.nome,
-      email: usuario.email,
-      password: usuario.senha,
-      title: 'Mr',
-      birth_date: usuario.diaNascimento,
-      birth_month: usuario.mesNascimento,
-      birth_year: usuario.anoNascimento,
-      firstname: usuario.primeiroNome,
-      lastname: usuario.ultimoNome,
-      company: usuario.empresa,
-      address1: usuario.endereco,
-      address2: usuario.endereco2,
-      country: usuario.pais,
-      zipcode: usuario.cep,
-      state: usuario.estado,
-      city: usuario.cidade,
-      mobile_number: usuario.celular
-    }
-  }).then((response) => {
-    if (response.body.includes('Email already exists')) {
-      cy.log('O usuário fixo já estava no banco. Tudo certo para os testes.');
-    } else {
-      cy.log('O banco estava vazio. Usuário fixo criado via API com sucesso!');
-    }
-  });
+    cy.request({
+        method: 'POST',
+        url: '/api/createAccount',
+        form: true,
+        failOnStatusCode: false,
+        body: {
+            name: usuario.nome,
+            email: usuario.email,
+            password: usuario.senha,
+            title: 'Mr',
+            birth_date: usuario.diaNascimento,
+            birth_month: usuario.mesNascimento,
+            birth_year: usuario.anoNascimento,
+            firstname: usuario.primeiroNome,
+            lastname: usuario.ultimoNome,
+            company: usuario.empresa,
+            address1: usuario.endereco,
+            address2: usuario.endereco2,
+            country: usuario.pais,
+            zipcode: usuario.cep,
+            state: usuario.estado,
+            city: usuario.cidade,
+            mobile_number: usuario.celular
+        }
+    }).then((response) => {
+        if (response.body.includes('Email already exists')) {
+            cy.log('O usuário fixo já estava no banco. Tudo certo para os testes.');
+        } else {
+            cy.log('O banco estava vazio. Usuário fixo criado via API com sucesso!');
+        }
+    });
 });

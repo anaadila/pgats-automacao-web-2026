@@ -3,62 +3,62 @@
 const login = require('../modules/login/login');
 
 describe('Fluxos de Autenticação (Login e Logout)', () => {
-  let usuarioFixo;
+    let usuarioFixo;
 
-  before(() => {
-    cy.fixture('usuarios').then((dados) => {
-      usuarioFixo = dados.usuarioExistente;
-      cy.garantirUsuarioExistente(usuarioFixo);
+    before(() => {
+        cy.fixture('usuarios').then((dados) => {
+            usuarioFixo = dados.usuarioExistente;
+            cy.garantirUsuarioExistente(usuarioFixo);
+        });
     });
-  });
 
-  beforeEach(() => {
-    cy.fixture('usuarios').as('dadosUsuarios');
-  });
+    beforeEach(() => {
+        cy.fixture('usuarios').as('dadosUsuarios');
+    });
 
-  // Test Case 02
-  it('Deve efetuar login com e-mail e senha corretos', function () {
-    // ARRANGE
-    const usuario = this.dadosUsuarios.usuarioExistente;
-    
-    login.acessarTelaDeLogin();
-    login.validarFormularioLoginVisivel()
+    // Test Case 02
+    it('Deve efetuar login com e-mail e senha corretos', function () {
+        // ARRANGE
+        const usuario = this.dadosUsuarios.usuarioExistente;
 
-    // ACT
-    login.efetuarLogin(usuario.email, usuario.senha);
+        login.acessarTelaDeLogin();
+        login.validarFormularioLoginVisivel()
 
-    // ASSERT
-    login.validarUsuarioAutenticado(usuario.nome);
-  });
+        // ACT
+        login.efetuarLogin(usuario.email, usuario.senha);
 
-  // Test Case 03
-  it('Deve validar mensagem de erro com credenciais incorretas', function () {
-    // ARRANGE
-    const usuario = this.dadosUsuarios.usuarioInvalido;
-    
-    login.acessarTelaDeLogin();
-    login.validarFormularioLoginVisivel()
+        // ASSERT
+        login.validarUsuarioAutenticado(usuario.nome);
+    });
 
-    // ACT
-    login.efetuarLogin(usuario.email, usuario.senha);
+    // Test Case 03
+    it('Deve validar mensagem de erro com credenciais incorretas', function () {
+        // ARRANGE
+        const usuario = this.dadosUsuarios.usuarioInvalido;
 
-    // ASSERT
-    login.validarMensagemDeErro(usuario.mensagemErroEsperada);
-  });
+        login.acessarTelaDeLogin();
+        login.validarFormularioLoginVisivel()
 
-  // Test Case 04
-  it('Deve efetuar logout com sucesso', function () {
-    // ARRANGE
-    const usuario = this.dadosUsuarios.usuarioExistente;
-    
-    login.acessarTelaDeLogin();
-    login.efetuarLogin(usuario.email, usuario.senha);
-    login.validarUsuarioAutenticado(usuario.nome);
+        // ACT
+        login.efetuarLogin(usuario.email, usuario.senha);
 
-    // ACT
-    login.efetuarLogout();
+        // ASSERT
+        login.validarMensagemDeErro(usuario.mensagemErroEsperada);
+    });
 
-    // ASSERT
-    login.validarRetornoAoLogin();
-  });
+    // Test Case 04
+    it('Deve efetuar logout com sucesso', function () {
+        // ARRANGE
+        const usuario = this.dadosUsuarios.usuarioExistente;
+
+        login.acessarTelaDeLogin();
+        login.efetuarLogin(usuario.email, usuario.senha);
+        login.validarUsuarioAutenticado(usuario.nome);
+
+        // ACT
+        login.efetuarLogout();
+
+        // ASSERT
+        login.validarRetornoAoLogin();
+    });
 });

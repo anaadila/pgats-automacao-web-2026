@@ -47,18 +47,18 @@ function validarDetalhesDoProdutoVisiveis() {
 }
 
 function pesquisarProduto(nomeProduto) {
-  cy.get(seletores.campoPesquisa).type(nomeProduto);
-  cy.get(seletores.botaoPesquisa).click();
+    cy.get(seletores.campoPesquisa).type(nomeProduto);
+    cy.get(seletores.botaoPesquisa).click();
 }
 
 function validarResultadosPesquisa(nomeEsperado) {
-  cy.get(seletores.tituloPagina)
-    .should('be.visible')
-    .and('contain.text', 'Searched Products');
+    cy.get(seletores.tituloPagina)
+        .should('be.visible')
+        .and('contain.text', 'Searched Products');
 
-  cy.get(seletores.nomeProdutoNoCard)
-    .contains(nomeEsperado)
-    .should('be.visible');
+    cy.get(seletores.nomeProdutoNoCard)
+        .contains(nomeEsperado)
+        .should('be.visible');
 }
 
 module.exports = {
