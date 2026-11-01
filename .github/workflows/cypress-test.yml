@@ -1,0 +1,40 @@
+name: Execução Cypress E2E
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+  workflow_dispatch:
+
+jobs:
+  cypress-run:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout do código
+        uses: actions/checkout@v4
+
+      - name: Executar testes E2E
+        uses: cypress-io/github-action@v6
+        with:
+          browser: chrome
+
+      - name: Salvar Relatório Mochawesome
+        uses: actions/upload-artifact@v4
+        if: always() 
+        with:
+          name: relatorio-mochawesome
+          path: cypress/reports 
+          retention-days: 15
+
+      - name: Salvar evidências de falha (Screenshots/Vídeos)
+        uses: actions/upload-artifact@v4
+        if: failure()
+        with:
+          name: cypress-evidencias
+          path: |
+            cypress/screenshots
+            cypress/videos
+          retention-days: 15

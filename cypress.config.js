@@ -10,6 +10,7 @@ module.exports = defineConfig({
     inlineAssets: true,
     saveAllAttempts: false,
   },
+  video: true,
   e2e: {
     baseUrl: 'https://automationexercise.com',
     blockHosts: [
