@@ -1,7 +1,45 @@
 {
-  "usuarioValido": {
+  "usuarioNovo": {
+    "genero": "feminino",
     "nome": "PGATS Aut",
     "email": "teste.pgats@mail.com",
-    "senha": "password123"
+    "senha": "password123",
+    "diaNascimento": "10",
+    "mesNascimento": "August",
+    "anoNascimento": "1995",
+    "primeiroNome": "PGATS",
+    "ultimoNome": "Aut",
+    "empresa": "Tech QA",
+    "endereco": "Avenida Principal, 456",
+    "endereco2": "Bloco B",
+    "pais": "United States",
+    "estado": "Texas",
+    "cidade": "Austin",
+    "cep": "73301",
+    "celular": "11988888888"
+  },
+  "usuarioExistente": {
+    "nome": "PGATS Aut",
+    "email": "usuario_fixo_testes@mail.com",
+    "senha": "password123",
+    "diaNascimento": "15",
+    "mesNascimento": "May",
+    "anoNascimento": "1990",
+    "primeiroNome": "PGATS",
+    "ultimoNome": "Aut",
+    "empresa": "Tech QA",
+    "endereco": "Rua das Flores, 123",
+    "endereco2": "Apto 45",
+    "pais": "United States",
+    "estado": "California",
+    "cidade": "Los Angeles",
+    "cep": "90001",
+    "celular": "11999999999",
+    "mensagemErroSignup": "Email Address already exist!"
+  },
+  "usuarioInvalido": {
+    "email": "email_inexistente@mail.com",
+    "senha": "senha_errada",
+    "mensagemErroEsperada": "Your email or password is incorrect!"
   }
-}
+  }
