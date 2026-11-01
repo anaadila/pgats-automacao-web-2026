@@ -22,6 +22,16 @@ module.exports = defineConfig({
     ],
     setupNodeEvents(on, config) {
       require('cypress-mochawesome-reporter/plugin')(on);
+      on('after:spec', (spec, results) => {
+        if (results && results.video) {
+          const temFalhas = results.tests.some((teste) =>
+            teste.attempts.some((tentativa) => tentativa.state === 'failed')
+          );
+          if (!temFalhas) {
+            fs.unlinkSync(results.video);
+          }
+        }
+      });
     },
   },
 });
